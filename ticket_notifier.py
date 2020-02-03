@@ -10,7 +10,7 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleW
 PARSER_REGEX = r'volných (\d+) \(\+(\d+) u prodejců\)'
 
 NIMROD_URL = 'https://www.nimrod-messenger.io/api/v1/message'
-NIMROD_API_KEY = '8fa62c01-1f57-4afe-a584-4e637cc6d910'
+NIMROD_API_KEY = '71c906ad-8e09-4a7e-aca9-7983cb2eabfe'
 RESULT_MESSAGE = 'POZOR Damiane!!!\nJe volnych {} listku a {} u prodejcu!!!\n{}\nMAKEJ...\nTed dluzis pivo ty mi. 🍻'
 
 
