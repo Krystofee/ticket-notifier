@@ -10,7 +10,7 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleW
 PARSER_REGEX = r'volných (\d+) \(\+(\d+) u prodejců\)'
 
 NIMROD_URL = 'https://www.nimrod-messenger.io/api/v1/message'
-NIMROD_API_KEY = '71c906ad-8e09-4a7e-aca9-7983cb2eabfe'
+NIMROD_API_KEYS = ['71c906ad-8e09-4a7e-aca9-7983cb2eabfe', '8fa62c01-1f57-4afe-a584-4e637cc6d910']
 RESULT_MESSAGE = 'POZOR Damiane!!!\nJe volnych {} listku a {} u prodejcu!!!\n{}\nMAKEJ...\nTed dluzis pivo ty mi. 🍻'
 
 
@@ -22,10 +22,11 @@ result = re.findall(PARSER_REGEX, text)[0]
 available_tickets, seller_tickets = int(result[0]), int(result[1])
 
 if available_tickets or seller_tickets or TEST_ENABLED:
-    requests.post(
-        NIMROD_URL,
-        data={
-            'api_key': NIMROD_API_KEY,
-            'message': RESULT_MESSAGE.format(available_tickets, seller_tickets, URL)
-        }
-    )
+    for key in NIMROD_API_KEYS:
+        requests.post(
+            NIMROD_URL,
+            data={
+                'api_key': key,
+                'message': RESULT_MESSAGE.format(available_tickets, seller_tickets, URL)
+            }
+        )
